@@ -5,7 +5,8 @@
   "description": "My new website, built in Clay!",
   "main": "app.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,11 @@
   },
   "homepage": "http://keats.me",
   "dependencies": {
+    "@nymdev/health-check": "^0.1.0",
     "amphora": "^2.9.1",
-    "clay-kiln": "^0.34.2"
+    "chalk": "^1.1.3",
+    "clay-kiln": "^0.34.2",
+    "express": "^4.14.0",
+    "nymag-handlebars": "^1.1.0"
   }
 }

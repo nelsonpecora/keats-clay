@@ -1,0 +1,7 @@
+uris:
+  /: /pages/homepage
+
+pages:
+  homepage:
+    layout: ''
+    main: []
