@@ -1,0 +1,6 @@
+name: Keats Heavy Industries
+host: keats.me
+path: /
+assetDir: public
+assetPath: /keats
+port: 80
