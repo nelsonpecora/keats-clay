@@ -1,0 +1,20 @@
+{
+  "name": "keats-clay",
+  "private": true,
+  "version": "0.0.1",
+  "description": "My new website, built in Clay!",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nelsonpecora/keats-clay.git"
+  },
+  "author": "Nelson Pecora",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nelsonpecora/keats-clay/issues"
+  },
+  "homepage": "http://keats.me"
+}
