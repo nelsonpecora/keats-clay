@@ -38,3 +38,6 @@ jspm_packages
 
 # local site config
 local.yml
+
+# api keys and such
+apikeys.txt

@@ -14,7 +14,7 @@ let app = express(),
 amphora({
   app: app,
   engines: { handlebars: hbs },
-  providers: ['apikey', 'ldap']
+  providers: ['apikey', 'twitter']
   // no session store, using memory for now
 }).then(function (router) {
   router.use(healthCheck())
