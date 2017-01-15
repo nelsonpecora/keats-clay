@@ -1,0 +1,22 @@
+_description: |
+  The base layout of my pages
+
+head:
+  _componentList:
+    page: true
+    include:
+      - clay-meta-title
+
+main:
+  _componentList:
+    page: true
+    _placeholder:
+      text: Main Section
+      height: 600px
+    include:
+      - page-header
+
+kiln:
+  _component:
+    include:
+      - clay-kiln

@@ -3,5 +3,22 @@ uris:
 
 pages:
   homepage:
-    layout: ''
+    layout: /components/layout/instances/general
+    head: []
     main: []
+
+components:
+  layout:
+    instances:
+      general:
+        head: head
+        main: main
+        kiln:
+          _ref: /components/clay-kiln
+  clay-kiln:
+    allow: true
+
+users:
+  -
+    username: nelsonpecora
+    provider: twitter

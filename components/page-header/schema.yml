@@ -1,0 +1,16 @@
+_description: |
+  Simple page header
+
+header:
+  _label: Page Header
+  _display: inline
+  _placeholder:
+    text: Page Header
+    height: 20px
+  _has:
+    -
+      fn: wysiwyg
+      styled: true
+      buttons:
+        - italic
+        - strikethrough
