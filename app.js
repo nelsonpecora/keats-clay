@@ -20,9 +20,12 @@ _.each(amphora.components.list(), function (component) {
 });
 
 // set up temporary helper to embed kiln in handlebars
-hbs.registerHelper('embed', function (file, data) {
-  console.log('embed ', file, data)
-  return this.embed(file, _.cloneDeep(data)); // call "embed" added by multiplex templates
+hbs.registerHelper('embed', function (file, data, locals, site) {
+  var cloned = _.cloneDeep(data);
+
+  cloned.locals = locals;
+  cloned.site = site;
+  return this.embed(file, cloned); // call "embed" added by multiplex templates
 });
 
 amphora({

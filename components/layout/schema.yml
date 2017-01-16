@@ -8,11 +8,11 @@ head:
       - clay-meta-title
 
 main:
+  _placeholder:
+    text: Main Section
+    height: 600px
   _componentList:
     page: true
-    _placeholder:
-      text: Main Section
-      height: 600px
     include:
       - page-header
 
