@@ -12,20 +12,13 @@ let app = express(),
   port = process.env.PORT || 3001,
   ip = process.env.IP_ADDRESS || '127.0.0.1';
 
-// set app stuff
+// register all components as partials
+// note: eventually this will happen automatically in amphora,
+// see https://github.com/nymag/amphora/issues/362
 _.each(amphora.components.list(), function (component) {
   const tpl = amphora.components.getTemplate(component, 'template');
 
   hbs.registerPartial(component, fs.readFileSync(tpl, 'utf8'));
-});
-
-// set up temporary helper to embed kiln in handlebars
-hbs.registerHelper('embed', function (file, data, locals, site) {
-  var cloned = _.cloneDeep(data);
-
-  cloned.locals = locals;
-  cloned.site = site;
-  return this.embed(file, cloned); // call "embed" added by multiplex templates
 });
 
 amphora({
@@ -34,7 +27,7 @@ amphora({
   providers: ['apikey', 'twitter']
   // no session store, using memory for now
 }).then(function (router) {
-  router.use(healthCheck())
+  router.use(healthCheck());
 
   router.listen(port, ip);
   console.log(`${chalk.green('[SUCCESS]')} Clay listening on port ${port}`);
