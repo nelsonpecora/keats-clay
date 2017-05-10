@@ -1,4 +1,6 @@
 # keats-clay
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/nelsonpecora/keats-clay.svg)](https://greenkeeper.io/)
 My new website, built in Clay!
 
 # Installing Clay
