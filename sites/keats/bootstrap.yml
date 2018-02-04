@@ -1,6 +1,3 @@
-uris:
-  /: /pages/homepage
-
 pages:
   homepage:
     layout: /components/layout/instances/general
@@ -14,11 +11,9 @@ components:
         head: head
         main: main
         kiln:
-          _ref: /components/clay-kiln
-  clay-kiln:
-    allow: true
+          _ref: /components/clay-kiln/instances/general
 
-users:
-  -
-    username: nelsonpecora
-    provider: twitter
+  clay-kiln:
+    instances:
+      general:
+        allow: true

@@ -1,34 +1,42 @@
 'use strict';
 const amphora = require('amphora'),
   express = require('express'),
-  hbs = require('nymag-handlebars')(),
+  session = require('express-session'),
+  logger = require('clay-log'),
+  amphoraHtml = require('amphora-html'),
+  compression = require('compression'),
+  path = require('path'),
   healthCheck = require('@nymdev/health-check'),
-  chalk = require('chalk'),
-  _ = require('lodash'),
-  fs = require('fs'),
-  njk = require('nunjucks-filters')();
-
-let app = express(),
   port = process.env.PORT || 3001,
-  ip = process.env.IP_ADDRESS || '127.0.0.1';
+  ip = process.env.IP_ADDRESS || '127.0.0.1',
+  log = logger.init({ name: 'keats' });
 
-// register all components as partials
-// note: eventually this will happen automatically in amphora,
-// see https://github.com/nymag/amphora/issues/362
-_.each(amphora.components.list(), function (component) {
-  const tpl = amphora.components.getTemplate(component, 'template');
+let app = express();
 
-  hbs.registerPartial(component, fs.readFileSync(tpl, 'utf8'));
+// enable gzip
+app.use(compression());
+// configure amphora-html
+amphoraHtml.configureRender({
+  editAssetTags: {
+    styles: true,
+    scripts: true
+  }
 });
+amphoraHtml.addRootPath(path.dirname(path.resolve('./package.json')));
 
-amphora({
+// instantiate amphora
+return amphora({
   app: app,
-  engines: { handlebars: hbs, nunjucks: njk },
+  renderers: {
+    html: amphoraHtml,
+    default: 'html'
+  },
   providers: ['apikey', 'twitter']
-  // no session store, using memory for now
 }).then(function (router) {
+  amphora.schedule.startListening();
   router.use(healthCheck());
-
   router.listen(port, ip);
-  console.log(`${chalk.green('[SUCCESS]')} Clay listening on port ${port}`);
+  log('info', 'Clay listening on ' + ip + ':' + port + ' (process ' + process.pid + ')');
+}).error(function (e) {
+  log('error', e);
 });

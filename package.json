@@ -19,13 +19,15 @@
   },
   "homepage": "http://keats.me",
   "dependencies": {
-    "@nymdev/health-check": "^0.1.0",
-    "amphora": "^2.9.1",
-    "chalk": "^1.1.3",
-    "clay-kiln": "^0.34.2",
-    "express": "^4.14.0",
-    "lodash": "^4.17.4",
-    "nunjucks-filters": "^1.4.2",
-    "nymag-handlebars": "^1.1.0"
+    "@nymdev/health-check": "^0.1.3",
+    "amphora": "^4.7.0",
+    "amphora-html": "^1.7.0",
+    "clay-kiln": "^5.12.0",
+    "clay-log": "^1.2.1",
+    "clayhandlebars": "^4.0.0",
+    "compression": "^1.7.1",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "lodash": "^4.17.5"
   }
 }

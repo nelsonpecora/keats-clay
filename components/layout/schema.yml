@@ -1,11 +1,8 @@
-_description: |
-  The base layout of my pages
+_description: The base layout of my pages
 
 head:
   _componentList:
     page: true
-    include:
-      - clay-meta-title
 
 main:
   _placeholder:
@@ -13,10 +10,14 @@ main:
     height: 600px
   _componentList:
     page: true
-    include:
-      - page-header
+
+foot:
+  _placeholder:
+    text: Footer Section
+    height: 300px
+  _componentList: true
 
 kiln:
-  _component:
+  _componentList:
     include:
       - clay-kiln

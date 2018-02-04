@@ -1,0 +1,5 @@
+components:
+  layout:
+    foot: []
+    kiln:
+      - _ref: /components/clay-kiln/instances/general
